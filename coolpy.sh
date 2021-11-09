@@ -73,7 +73,7 @@ fi
 if [ "$BACKUP_DB" = 'true' ]; then
     sqlfile="mariadb_${DATE}.sql" # Nome temporario d oarquivo exportado do banco.
     mysqldump -u "$user" -p"$password" --all-databases > ${BACKUP_DIR}/$sqlfile 2>>${LOG} || die "------ $(date +'%d-%m-%Y %T') Backup database [ERRO]"
-    tar cJf "${BACKUP_DIR}/mariadb_${DATE}.tar.xz" ${BACKUP_DIR}/$sqlfile && rm ${BACKUP_DIR}/$sqlfile
+    tar cJf "${BACKUP_DIR}/mariadb_${DATE}.tar.gz" ${BACKUP_DIR}/$sqlfile && rm ${BACKUP_DIR}/$sqlfile
     echo "-- $(date +'%d-%m-%Y %T') Backup do banco e dados [SUCESSO]" >>${LOG}
 fi
 
